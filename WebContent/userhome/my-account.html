@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../favicon.ico"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"><title>NEUSOFT | OA</title><link rel="stylesheet" href="../common.css"><link rel="stylesheet" href="../thirdparty-lib/fontawesome/font-awesome.min.css"><script src="../thirdparty-lib/jquery/jquery.min.js"></script><script src="../common.js"></script>
+</head>
+<body class="layout-vbox">
+    <nav>
+        <ol class="breadcrumb">
+            <li>
+                <a
+                    href="javascript:window.top.dashboard()"
+                    class="fa fa-dashboard">首页 </a>
+            </li>
+            <li>个人中心</li>
+            <li>
+                <b>我的账号</b>
+            </li>
+        </ol>
+    </nav>
+    <main class="pad">
+        <fieldset>
+            <legend>基础信息</legend>
+            <p class="group-row">
+                <label>头像：</label>
+                <img
+                    id="userAvatarEL"
+                    alt="头像"
+                    width="160"
+                    height="160"
+                    class="avatar"
+                    title="点击浏览大图">
+                <a class="gutter-left" href="modify-avatar.html" >修改头像</a>
+            </p>
+            <p>
+                <label for="userAccountEL">账号：</label>
+                <span>
+                <b id="userAccountEL">加载中...</b>
+                (注册时间:<b id="userCreateTimeEL">加载中...</b>)
+                </span>
+            </p>
+            <p>
+                <label for="userNameEL">名称：</label>
+                <input
+                    maxlength="32"
+                    id="userNameEL"
+                    type="text"
+                    placeholder="不超过32个字符"
+                    required>
+                <button id="modifyNameBtn">修改</button>
+            </p>
+            <p>
+                <label>最后一次密码修改时间：</label>
+                <b id="userLastModifyPasswordTimeEL">加载中</b>
+                <strong>(还有<b id="passwordOutOfDayEL">加载中...</b>天过期)</strong>
+            </p>
+
+            <p>
+                <label for="userSecurityEmailEL">密保邮箱：</label>
+                <b id="userSecurityEmailEL">加载中...</b>
+                <a
+                    href="javascript:"
+                    onclick="window.top.openMenu(this.textContent,'mount=back')"
+                    >修改密保邮箱</a>
+
+            </p>
+        </fieldset>
+
+
+        <fieldset>
+            <legend>
+                最近5次登录日志
+                <small>
+                    (如果不是您的操作，请
+                    <a
+                        href="javascript:"
+                        onclick="window.top.openMenu(this.textContent,'mount=back')">修改密码</a>
+                    )
+                </small>
+            </legend>
+            <table class="data">
+                <thead>
+                    <tr>
+                        <th>登录日期</th>
+                        <th>登录时间</th>
+                        <th>登录ip</th>
+                        <th>登录设备</th>
+                        <th>注销时间</th>
+                        <th>会话时长(分钟)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </main>
+    <script type="text/javascript" src="my-account.js"></script>
+</body>
+</html>

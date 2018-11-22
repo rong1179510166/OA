@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="shortcut icon" href="../favicon.ico">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<title>NEUSOFT | OA</title>
+<link rel="stylesheet" href="../common.css">
+<link rel="stylesheet"
+	href="../thirdparty-lib/fontawesome/font-awesome.min.css">
+<script src="../thirdparty-lib/jquery/jquery.min.js"></script>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body class="pad">
+	<article id="tipBox" class="dismissible-box message-box group-row">
+		<span> <b id="userNameEL">加载中...</b> 你好 您上一次登陆时间是: <b
+			id="lastLoginTimeEL">加载中...</b> 登陆IP是:<b id="lastLoginIpEL">加载中...</b>
+			<strong>如果不是您的操作，请 <a href="javascript:"
+				onclick="window.top.openMenu(this.textContent)">修改密码</a>
+		</strong>。
+		</span> <span>今天的天气气温是<b id="weatherEL"></b>
+		</span> <span class="grow"></span> <a class="dismiss-btn">&times;</a>
+	</article>
+	<article class="statistics-box">
+		<section class="layout-hbox-around ">
+			<aside style="background: #00C0EF">
+				<div class="layout-justify">
+					<dl>
+						<dt id="onlineUserEL">加载中...</dt>
+						<dd>当前在线用户数</dd>
+					</dl>
+					<div>
+						<i class="fa fa-user fa-5x"></i>
+					</div>
+				</div>
+				<a href="javascript:"> 查看详情 <i class="fa fa-arrow-circle-right"></i>
+				</a>
+			</aside>
+			<aside style="background: #00A65A">
+				<div class="layout-justify">
+					<dl>
+						<dt id="totalAccountEL">加载中...</dt>
+						<dd>总用户数</dd>
+					</dl>
+					<div class="icon">
+						<i class="fa fa-users fa-5x"></i>
+					</div>
+				</div>
+				<a href="javascript:"> 查看详情 <i class="fa fa-arrow-circle-right"></i>
+				</a>
+			</aside>
+		</section>
+		<section class="layout-hbox-around ">
+			<aside style="background: #F39C12">
+				<div class="layout-justify">
+					<dl class="inner">
+						<dt id="cpuPayloadEL">加载中...</dt>
+						<dd>服务器CPU负荷</dd>
+					</dl>
+					<div class="icon">
+						<i class="fa fa-chart-line fa-5x"></i>
+					</div>
+				</div>
+				<a href="javascript:"> 查看详情 <i class="fa fa-arrow-circle-right"></i>
+				</a>
+			</aside>
+			<aside style="background: #DD4B39">
+				<div class="layout-justify">
+					<dl class="inner">
+						<dt id="memoryPayloadEL">加载中...</dt>
+						<dd>服务器内存负荷</dd>
+					</dl>
+					<div class="icon">
+						<i class="fa fa-battery-half fa-5x"></i>
+					</div>
+				</div>
+				<a href="javascript:"> 查看详情 <i class="fa fa-arrow-circle-right"></i>
+				</a>
+			</aside>
+		</section>
+	</article>
+	<script type="text/javascript" src="../common.js"></script>
+	<script src="dashborad.js"></script>
+</body>
+
+</html>

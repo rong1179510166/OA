@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../favicon.ico">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<title>NEUSOFT | OA</title>
+<link rel="stylesheet" href="../common.css">
+<link rel="stylesheet"
+	href="../thirdparty-lib/fontawesome/font-awesome.min.css">
+<script src="../thirdparty-lib/jquery/jquery.min.js"></script>
+<script src="../common.js"></script>
+<link rel="stylesheet" href="index.css">
+</head>
+<body class="layout-vbox">
+	<header class="layout-hbox">
+		<h1>
+			<a href="javascript:window.top.dashboard()" target="mainFrame"
+				class="logo" title="点击回到首页"> <b>NEUSOFT-</b> OA
+			</a>
+		</h1>
+		<div class="grow layout-justify-stretch nav-box">
+			<aside>
+				<a class="fa fa-bars nav-btn" href="javascript:toggleSideBar()"></a>
+				<script>
+            var toggleSideBar = function() {
+                var sideBar = document.querySelector(".sidebar");
+                if(sideBar.offsetWidth === 0) {
+                    sideBar.style.width = 200 + "px";
+                } else {
+                    sideBar.style.width = 0 + "px";
+                }
+            }
+        </script>
+			</aside>
+			<aside>
+				<div class="dropdown-btn">
+					<a href="javascript:" class="nav-btn" data-toggle="dropdown"> <img
+						id="userSmallAvatarEL"  width="25"
+						height="25" class="avatar">
+					</a>
+					<article class="dropdown-btn-menu">
+						<header class="txt-center">
+							<img id="userBigAvatarEL" 								class="avatar" width="80" height="80">
+							<p>
+								<b id="userNameEL"></b> - 东软集团 <small>工龄：18年</small>
+							</p>
+						</header>
+						<main class="layout-justify pad"> <a href="javascript:"
+							onclick="window.top.openMenu(this.textContent)">我的账号</a> <a
+							href="javascript:"
+							onclick="window.top.openMenu(this.textContent)">问题反馈</a> <a
+							target="frameWindow" href="about.html">帮助/关于</a> </main>
+						<footer class="layout-justify">
+							<a href="javascript:exitSystem()"
+								class="btn btn-default btn-flat">注销退出</a> <a href="javascript:"
+								onclick="window.openMenu(this.textContent)"
+								class="btn btn-default btn-flat">修改密码</a>
+						</footer>
+					</article>
+				</div>
+			</aside>
+		</div>
+	</header>
+	<section class="grow layout-hbox">
+		<article class="sidebar">
+			<ul id="menuBox" class="sidebar-menu" data-widget="tree">
+				<li><a id="dashboardLinkEL" href="dashboard.html"
+					class="fa fa-link fa-dashboard active" target="mainFrame">&nbsp;首页
+				</a></li>
+								
+			</ul>
+		</article>
+		<main class="grow"> <iframe id="mainFrame" name="mainFrame"
+			src="dashboard.html"></iframe> </main>
+	</section>
+	<script src="index.js"></script>
+</body>
+</html>

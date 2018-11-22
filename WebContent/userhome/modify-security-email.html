@@ -1,0 +1,146 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../favicon.ico"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"><title>NEUSOFT | OA</title><link rel="stylesheet" href="../common.css"><link rel="stylesheet" href="../thirdparty-lib/fontawesome/font-awesome.min.css"><script src="../thirdparty-lib/jquery/jquery.min.js"></script><script src="../common.js"></script>
+</head>
+<body class="layout-vbox">
+    <nav>
+         <a 
+            href="javascript:history.back()"
+            class="fa fa-back unmount back"></a>
+        <ol class="breadcrumb">
+            <li>
+                <a
+                    href="javascript:window.top.dashboard()"
+                    class="fa fa-dashboard">首页 </a>
+            </li>
+            <li>个人中心</li>
+            <li>
+                    <b>修改密保邮箱</b>
+                </li>
+            </ol>
+        </nav>
+        <menu>
+            <button>确定</button>
+        </menu>
+    <main class="pad">
+         
+    <form
+        class="label9em"
+        action="/api/user/modifypassword.ajax"
+       >
+             <p>
+                <label for="passwordEL">*您的密码：</label>
+                <input
+                    type="password"
+                    name="password"
+                    class="grow"
+                    id="passwordEL"
+                    placeholder="请输入您的密码"
+                    required>
+            </p>
+             <p>
+                <label for="oldSecurityEmailEL">*旧的密保邮箱：</label>
+                <input
+                    type="email"
+                    name="oldSecurityEmail"
+                    class="grow"
+                    id="oldSecurityEmailEL"
+                    placeholder="请输入您的旧密保邮箱"
+                    required>
+            </p>
+            <p>
+                <strong>
+                            系统需要给您新的密保邮箱发送验证码来确认您是邮箱的主人，发送验证码后，请查收您的收件箱，然后输入您收到的验证码。
+            </strong>
+            </p>
+            <p>
+                <label for="newSecurityEmailEL">*新的密保邮箱：</label>
+                <input
+                    type="email"
+                    name="newSecurityEmail"
+                    class="grow"
+                    id="newSecurityEmailEL"
+                    placeholder="请输入新的密保邮箱"
+                    required>
+                <button type="button" id="sendValidateCodeBtn">发送验证码</button>
+            </p>
+            
+             <p>
+                <label for="validateCodeEL">*您收到的验证码：</label>
+                <input
+                    type="text"
+                    name="validateCode"
+                    class="grow"
+                    maxlength="6"
+                    id="validateCodeEL"
+                    placeholder="请输入您收到的6位验证码，区分大小写"
+                    required>
+            </p>
+            
+    </form>
+
+    </main>
+    <script>
+              $("#sendValidateCodeBtn").click(function(){
+                  var url="/web-component/captcha/view.html";
+                  new FrameWindow().open(url);
+              });
+    
+                    $("#sendEmailBtn").click(function() {
+                        this.disabled = true;
+                        var btn = this;
+                        btn._times = 15;
+                        var showProceed = function() {
+                            btn.textContent = "发送中(" + btn._times + "s)";
+                            btn._times--;
+                            if (btn._times >= 0) {
+                                setTimeout(showProceed, 1000);
+                            } else {
+                                btn.textContent = "再次发送";
+                                btn.disabled = false;
+                            }
+                        }
+                        showProceed();
+                        var url = "user/modifySecurityEmail/sendEmail.ajax";
+                        $.post(url, {
+                            email : $("#newSecurityEmailEL").val(),
+                            captcha : $("#captchaEL").val()
+                        }, function(resp) {
+                            if (resp.code === "ok") {
+                                btn._times = 0;
+                                toast("发送成功，请查看邮箱!");
+                            } else {
+                                toast("发送失败，请确认邮箱地址")
+                            }
+                        })
+
+                    })
+                </script>
+
+
+
+    <script type="text/javascript">
+                    $("form").submit(function() {
+                        //防止重复提交
+                        var submitBtn = $("button[type='submit']", this)[0];
+                        submitBtn.disabled = true;
+                        $.post(this.action, $(this).serializeArray(), function(resp) {
+                            if (resp.code === "ok") {
+                                toast("密码修改成功，请重新登陆!");
+                                //window.location.href="jsp/login.html";
+                            } else {
+                                $("#messageEL").html(resp.message);
+                                $("#message-container").show();
+                                submitBtn.disabled = false;
+                            }
+                        });
+                        return false;
+                    });
+                </script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+.statistics-box {
+	
+}
+
+.statistics-box aside {
+	color: #ffffff;
+	width: 40%;
+	box-sizing: border-box;
+	min-width: 40%;
+	margin: 1em;
+	border-radius: 5px;
+}
+
+.statistics-box aside:hover .fa-5x {
+	transition: font-size 1s;
+	font-size: 7em;
+}
+
+.statistics-box aside>:first-child {
+	padding: 1em;
+}
+
+.statistics-box aside>a {
+	display: block;
+	text-align: center;
+	padding: 3px 0;
+	color: rgba(255, 255, 255, 0.8);
+	background: rgba(0, 0, 0, 0.1);
+	text-decoration: none;
+}
+
+.statistics-box aside>a:hover {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+.statistics-box aside dt {
+	font-size: 38px;
+	margin-bottom: 15px;
+}
+
+.statistics-box aside dd {
+	font-size: 15px;
+	margin: 15px 0px;
+}

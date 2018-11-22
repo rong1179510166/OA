@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+     <link rel="shortcut icon" href="../favicon.ico"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"><title>NEUSOFT | OA</title><link rel="stylesheet" href="../common.css"><link rel="stylesheet" href="../thirdparty-lib/fontawesome/font-awesome.min.css"><script src="../thirdparty-lib/jquery/jquery.min.js"></script><script src="../common.js"></script>
+    </head>
+</head>
+<body>
+    <body class="layout-vbox">
+    <nav>
+        <ol class="breadcrumb">
+            <li>
+                <a
+                    href="javascript:window.top.dashboard()"
+                    class="fa fa-dashboard">首页 </a>
+            </li>
+            <li>个人中心</li>
+            <li>
+                <b>问题反馈</b>
+            </li>
+        </ol>
+    </nav>
+    <menu>
+        <a
+            id="submitFormBtn"
+            href="javascript:submitForm()"
+            class="btn">提交</a>
+    </menu>
+
+    <form
+        id="feedbackForm"
+        >
+        <p>
+            <label for="newPasswordEL">问题截图：</label>
+            <input
+                type="file"
+                name="screenshot"
+                id="newPasswordEL"
+                >
+             <button>上传</button>
+        </p>
+        <p>
+            <textarea rows="20" cols="300" placeholder="请描述您的问题"></textarea>
+        </p>
+        <p>
+            <label for="newPasswordConfirmEL">您的联系方式：</label>
+            <input
+                type="text"
+                name="contact"
+                class="grow"
+                id="contactEL"
+                placeholder="请准备提供，问题解决后会使用此方式联系您">
+        </p>
+    </form>
+</body>
+</html>

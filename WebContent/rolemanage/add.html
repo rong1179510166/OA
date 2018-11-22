@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../favicon.ico">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<title>NEUSOFT | OA</title>
+<link rel="stylesheet" href="../common.css">
+<link rel="stylesheet"
+	href="../thirdparty-lib/fontawesome/font-awesome.min.css">
+<script src="../thirdparty-lib/jquery/jquery.min.js"></script>
+<script src="../common.js"></script>
+</head>
+<body class="layout-vbox">
+	<nav>
+		<a href="javascript:history.back()" class="fa fa-back"></a>
+		<ol class="breadcrumb">
+			<li><a href="javascript:window.top.dashboard()"
+				class="fa fa-dashboard">首页 </a></li>
+			<li>系统管理</li>
+			<li><a href="list.html">系统角色管理</a></li>
+			<li><b>新增</b></li>
+		</ol>
+	</nav>
+	<menu>
+		<button id="submitBtn">提交</button>
+	</menu>
+	<form id="addForm" class="label3em">
+		<p>
+			<label for="codeEL">*代号：</label> <input type="text" name="code"
+				maxlength="32" class="grow" id="codeEL"
+				placeholder="3-32个字符，支持字母，数字，中横线">
+		</p>
+		<p>
+			<label for="nameEL">*名称：</label> <input type="text" name="name"
+				maxlength="32" class="grow" id="nameEL" placeholder="不超过32个字符">
+		</p>
+		<p>
+			<label for="remarkEL">描述：</label> <input type="text" name="remark"
+				maxlength="128" class="grow" placeholder="不超过128个字符" id="remarkEL">
+		</p>
+	</form>
+	<script src="add.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.oa.dao.RoleDao">
+	
+	
+	<resultMap type="RoleEntity" id="RoleMap" autoMapping="true">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="remark" column="remark" />
+		<result property="createTime" column="create_time" />
+	</resultMap>
+
+
+	<insert id="insert" statementType="CALLABLE">
+	 insert into sys_role (id, code, name, 
+      remark, createUser_id, createTime
+      )
+    values (#{id,jdbcType=CHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{createuserId,jdbcType=CHAR}, #{createtime,jdbcType=TIMESTAMP}
+      )
+	</insert>
+
+	<delete id="delete">
+		delete from sys_Role where id=#{xxxxxxxxxxxxx}
+	</delete>
+
+	<update id="update">
+	 update sys_role
+    <set>
+      <if test="map.code != null">
+        code = #{map.code,jdbcType=VARCHAR},
+      </if>
+      <if test="map.name != null">
+        name = #{map.name,jdbcType=VARCHAR},
+      </if>
+      <if test="map.remark != null">
+        remark = #{map.remark,jdbcType=VARCHAR},
+      </if>
+   
+    </set>
+    where id = #{id,jdbcType=CHAR}
+	</update>
+
+
+	<select id="select" resultMap="RoleMap">
+		select
+		*
+		from sys_Role where ${column}=#{value}
+	</select>
+	
+	
+
+	<select id="exists" resultType="boolean">
+		select count(*)>0
+		from sys_Role
+		where ${list[0]}=#{list[1]}
+	</select>
+	
+	<select id="loadAll" resultMap="RoleMap">
+		select * from sys_role
+		where create_user_id=#{create_user_id}
+		order by code
+	</select>
+
+</mapper>

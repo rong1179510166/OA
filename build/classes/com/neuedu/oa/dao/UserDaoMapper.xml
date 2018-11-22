@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.oa.dao.UserDao">
+	
+	
+	<resultMap type="UserEntity" id="userMap" autoMapping="true">
+		<id property="id" column="id"/>
+		<association property="createUser" select="selectById" column="create_user_id"
+		fetchType="lazy"
+		></association>
+	</resultMap>
+
+	<select id="selectById" resultMap="userMap" flushCache="false" useCache="true">
+		select * from sys_user where id=#{id}
+	</select>
+	
+	<insert id="insert" statementType="CALLABLE">
+		 insert into sys_user (id, account, name, 
+      password, create_time, last_Login_IP, 
+      last_login_time, last_modify_password_time, 
+      phone, security_Email, avatar, 
+      remark, flag, deleted, create_user_id
+      )
+    values (#{id,jdbcType=CHAR}, #{account,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{password,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastLoginIp,jdbcType=VARCHAR}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{lastModifyPasswordTime,jdbcType=TIMESTAMP}, 
+      #{phone,jdbcType=VARCHAR}, #{securityEmail,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{flag,jdbcType=BIT}, #{deleted,jdbcType=BIT}, #{createUserId,jdbcType=CHAR}
+      )
+	</insert>
+
+	<delete id="delete">
+		delete from sys_user where id=#{xxxxxxxxxxxxx}
+	</delete>
+
+	<update id="update">
+		 update sys_user
+    <set>
+      <if test="map.account != null">
+        account = #{map.account,jdbcType=VARCHAR},
+      </if>
+      <if test="map.name != null">
+        name = #{map.name,jdbcType=VARCHAR},
+      </if>
+      <if test="map.password != null">
+        password = #{map.password,jdbcType=CHAR},
+      </if>
+      <if test="map.lastLoginIp != null">
+        last_Login_IP = #{map.lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="map.lastLoginTime != null">
+        last_login_time = #{map.lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="map.lastModifyPasswordTime != null">
+        last_modify_password_time = #{map.lastModifyPasswordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="map.phone != null">
+        phone = #{map.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="map.securityEmail != null">
+        security_Email = #{map.securityEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="map.avatar != null">
+        avatar = #{map.avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="map.remark != null">
+        remark = #{map.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="map.flag != null">
+        flag = #{map.flag,jdbcType=BIT},
+      </if>
+      <if test="map.deleted != null">
+        deleted = #{map.deleted,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+	</update>
+
+
+	<select id="select" resultMap="userMap">
+		select
+		*
+		from sys_user where ${column}=#{value}
+	</select>
+	
+	
+
+	<select id="exists" resultType="boolean">
+		select count(*)>0
+		from sys_user
+		where ${list[0]}=#{list[1]}
+	</select>
+	
+	<select id="selectByLike" resultMap="userMap">
+		select * from sys_user
+		<where>
+			<if test="key !=null">
+				name like #{key}
+				or account like #{key}
+			</if>
+			<if test="state!=null">
+				flag=#{state}
+			</if>
+			<if test="currentUserId !=null">
+				create_user_id=#{currentUserId}
+			</if>
+		</where>
+		order by account desc
+		
+	</select>
+
+</mapper>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../favicon.ico">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<title>NEUSOFT | OA</title>
+<link rel="stylesheet" href="../common.css">
+<link rel="stylesheet"
+	href="../thirdparty-lib/fontawesome/font-awesome.min.css">
+<script src="../thirdparty-lib/jquery/jquery.min.js"></script>
+<script src="../common.js"></script>
+</head>
+
+<body class="layout-vbox">
+	<nav>
+		<a href="javascript:history.back()" class="fa fa-back"></a>
+		<ol class="breadcrumb">
+			<li><a class="fa fa-dashboard"
+				href="javascript:window.top.dashboard()"> 首页 </a></li>
+			<li>系统管理</li>
+			<li><a href="list.html">系统用户管理</a></li>
+			<li><b>查看</b></li>
+		</ol>
+	</nav>
+	<menu>
+		<button id="modifyBtn">提交修改</button>
+		<a href="grant-role.html" class="btn">分配角色</a>
+		<button id="changeStateBtn">锁定/解锁</button>
+		<button id="deleteBtn">删除用户</button>
+	</menu>
+	<form id="modForm" method="post" class="label8em">
+		<input name="id" type="hidden">
+		<p>
+			<label for="avatorEL">头像：</label> <img id="avatarEL" class="avatar"
+				width="50" src="../avatar/no-avatar.png" onclick="showAvatar(this)"
+				height="50" title="点击查看大图" alt="用户头像">
+			<script title="查看用户头像大图">
+            var showAvatar=function(img){
+                if(img&&img.src){
+                    new FrameWindow().open(img.src);
+                }
+            }
+            </script>
+		</p>
+		<p>
+			<label for="accountEL">*账户：</label> <input type="text" name="account"
+				maxlength="32" class="grow" id="accountEL" required="required"
+				placeholder="3-32个字符，支持字母，数字，中横线">
+		</p>
+		<p>
+			<label for="nameEL">*名称：</label> <input type="text" name="name"
+				maxlength="32" class="grow" id="nameEL" required="required"
+				placeholder="不超过32个字符">
+		</p>
+		<p>
+			<label>*账号状态：</label> <b id="accountStateEL">未知 </b>
+		</p>
+		<p>
+			<label for="remarkEL">备注：</label> <input type="text" name="remark"
+				maxlength="128" class="grow" placeholder="不超过128个字符" id="remarkEL">
+		</p>
+		<p>
+			<span> <label for="phoneEL">联系电话：</label> <input type="text"
+				class="grow" id="phoneEL" readonly>
+			</span> <span> <label for="securityEmailEL">密保邮箱：</label> <input
+				type="text" class="grow" id="securityEmailEL" readonly>
+			</span>
+		</p>
+
+		<p>
+			<span> <label for="lastLoginTimeEL">最近登录：</label> <input
+				type="text" class="grow" id="lastLoginTimeEL" readonly>
+			</span> <span> <label for="lastLoginIPEL">最近登录IP：</label> <input
+				type="text" class="grow" id="lastLoginIPEL" readonly>
+			</span> <span> <label for="lastModPasswordTimeEL"> 最近修改密码：</label> <input
+				type="text" class="grow" id="lastModPasswordTimeEL" readonly>
+			</span>
+		</p>
+		<p>
+			<span> <label for="createUserEL">创建人：</label> <input
+				type="text" class="grow" id="createUserEL" readonly>
+			</span> <span> <label for="createTimeEL">创建时间：</label> <input
+				type="text" class="grow" id="createTimeEL" readonly>
+			</span>
+		</p>
+	</form>
+	<script type="text/javascript" src="check.js"></script>
+</body>
+
+</html>

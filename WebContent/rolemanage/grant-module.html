@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="shortcut icon" href="../favicon.ico">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<title>NEUSOFT | OA</title>
+<link rel="stylesheet" href="../common.css">
+<link rel="stylesheet"
+	href="../thirdparty-lib/fontawesome/font-awesome.min.css">
+<script src="../thirdparty-lib/jquery/jquery.min.js"></script>
+<script src="../common.js"></script>
+<script
+	src="../thirdparty-lib/fancytree/jquery.fancytree-all-deps.min.js"></script>
+<link href="../thirdparty-lib/fancytree/ui.fancytree.css"
+	rel="stylesheet">
+</head>
+<body class="layout-vbox">
+	<nav>
+		<a href="javascript:history.back()" class="fa fa-back"></a>
+		<ol class="breadcrumb">
+			<li><a href="javascript:window.top.dashboard()"
+				class="fa fa-dashboard">首页 </a></li>
+			<li>系统管理</li>
+			<li><a href="list.html">系统角色管理</a></li>
+			<li>角色【<b id="roleNameEL">加载中</b>】-功能分配
+			</li>
+		</ol>
+	</nav>
+	<menu>
+		<a id="confirmGrantBtn" class="btn" href="check.html"> 确定 </a>
+	</menu>
+	<section class="pad">
+		<table class="data fancytree-container fancytree-ext-table"
+			id="module-table-tree" tabindex="0" role="treegrid"
+			aria-multiselectable="true" aria-readonly="true"
+			aria-activedescendant="ui-id-1">
+			<colgroup>
+				<col width="50px">
+				<col width="400px">
+				<col width="*">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>名称</th>
+					<th>备注</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr role="row" aria-expanded="false" aria-selected="true"
+					class="fancytree-has-children fancytree-partsel fancytree-selected fancytree-exp-c fancytree-ico-c"
+					id="ui-id-1">
+					<td class="txt-center" role="gridcell">1</td>
+					<td style="text-align: left;" role="gridcell"><span
+						class="fancytree-node" style="padding-left: 0px;"><span
+							role="button" class="fancytree-expander"></span><span
+							role="checkbox" class="fancytree-checkbox"></span><span
+							class="fancytree-title">(09)系统管理</span></span></td>
+					<td style="text-align: left;" role="gridcell"></td>
+				</tr>
+				<tr role="row" aria-expanded="true" aria-selected="false"
+					class="fancytree-expanded fancytree-has-children fancytree-lastsib fancytree-partsel fancytree-exp-el fancytree-ico-e">
+					<td class="txt-center" role="gridcell">2</td>
+					<td style="text-align: left;" role="gridcell"><span
+						class="fancytree-node" style="padding-left: 0px;"><span
+							role="button" class="fancytree-expander"></span><span
+							role="checkbox" class="fancytree-checkbox"></span><span
+							class="fancytree-title">(01)个人中心</span></span></td>
+					<td style="text-align: left;" role="gridcell"></td>
+				</tr>
+				<tr role="row" aria-selected="true"
+					class="fancytree-partsel fancytree-selected fancytree-exp-n fancytree-ico-c"
+					style="">
+					<td class="txt-center" role="gridcell">2.1</td>
+					<td style="text-align: left;" role="gridcell"><span
+						class="fancytree-node" style="padding-left: 16px;"><span
+							class="fancytree-expander"></span><span role="checkbox"
+							class="fancytree-checkbox"></span><span class="fancytree-title">(0101)修改密码</span></span></td>
+					<td style="text-align: left;" role="gridcell"></td>
+				</tr>
+				<tr role="row" aria-selected="true"
+					class="fancytree-partsel fancytree-selected fancytree-exp-n fancytree-ico-c"
+					style="">
+					<td class="txt-center" role="gridcell">2.2</td>
+					<td style="text-align: left;" role="gridcell"><span
+						class="fancytree-node" style="padding-left: 16px;"><span
+							class="fancytree-expander"></span><span role="checkbox"
+							class="fancytree-checkbox"></span><span class="fancytree-title">(0102)我的账号</span></span></td>
+					<td style="text-align: left;" role="gridcell"></td>
+				</tr>
+				<tr role="row" aria-selected="true"
+					class="fancytree-partsel fancytree-selected fancytree-exp-n fancytree-ico-c"
+					style="">
+					<td class="txt-center" role="gridcell">2.3</td>
+					<td style="text-align: left;" role="gridcell"><span
+						class="fancytree-node" style="padding-left: 16px;"><span
+							class="fancytree-expander"></span><span role="checkbox"
+							class="fancytree-checkbox"></span><span class="fancytree-title">(0103)问题反馈</span></span></td>
+					<td style="text-align: left;" role="gridcell"></td>
+				</tr>
+				<tr role="row" aria-selected="true"
+					class="fancytree-partsel fancytree-selected fancytree-exp-n fancytree-ico-c"
+					style="">
+					<td class="txt-center" role="gridcell">2.4</td>
+					<td style="text-align: left;" role="gridcell"><span
+						class="fancytree-node" style="padding-left: 16px;"><span
+							class="fancytree-expander"></span><span role="checkbox"
+							class="fancytree-checkbox"></span><span class="fancytree-title">(0108)修改密保邮箱</span></span></td>
+					<td style="text-align: left;" role="gridcell"></td>
+				</tr>
+				<tr role="row" aria-selected="false"
+					class="fancytree-lastsib fancytree-exp-nl fancytree-ico-c" style="">
+					<td class="txt-center" role="gridcell">2.5</td>
+					<td style="text-align: left;" role="gridcell"><span
+						class="fancytree-node" style="padding-left: 16px;"><span
+							class="fancytree-expander"></span><span role="checkbox"
+							class="fancytree-checkbox"></span><span class="fancytree-title">(0177)帮助/关于</span></span></td>
+					<td style="text-align: left;" role="gridcell">帮助/关于</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+</body>
+
+</html>

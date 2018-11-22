@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="../favicon.ico">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<title>NEUSOFT | OA</title>
+<link rel="stylesheet" href="../common.css">
+<link rel="stylesheet"
+	href="../thirdparty-lib/fontawesome/font-awesome.min.css">
+<script src="../thirdparty-lib/jquery/jquery.min.js"></script>
+<script src="../common.js"></script>
+</head>
+<body class="layout-vbox">
+	<nav>
+		<a href="javascript:history.back()" class="fa fa-back"></a>
+		<ol class="breadcrumb">
+			<li><a href="javascript:window.top.dashboard()"
+				class="fa fa-dashboard">首页 </a></li>
+			<li>个人中心</li>
+			<li><a href="my-account.html">我的账号</a></li>
+			<li><b>修改我的头像</b></li>
+		</ol>
+	</nav>
+	<main class="pad">
+	<p>*请选择头像文件(仅支持gif、png格式，不得超过2m):</p>
+	<p>
+		<img id="previewImage"   width="240" height="240">
+	</p>
+	<form   method="post"
+		enctype="multipart/form-data">
+		<p>
+			<input id="fileInput"  type="file"  name="avatar" accept=".png,.gif,.jpg" class=""
+				id="avatarEL">
+			<button type="submit" class="btn">提交</button>
+		</p>
+	</form>
+
+	</main>
+	<script type="text/javascript">
+		$("#fileInput").change(function(){
+			var files=this.files;
+			var f=files[0];
+			var fr=new FileReader();
+			fr.addEventListener("load",function(evt){
+				var result=this.result;
+				$("#previewImage").attr("src",result);
+			});
+			fr.readAsDataURL(f);
+		})
+		$("form").submit(function(evt){
+			var formdata=new FormData();
+			
+			var fileInput=this.avatar;
+			var avatarFile=fileInput.files[0];
+			formdata.append("avatar",avatarFile);
+			
+	        $.ajax({
+	            url:"/user/modifyAvatar.do",
+	            type: 'post',
+	            processData: false,
+	            contentType: false,
+	            data: formdata,
+	            success: function (resp) {
+	            	if(resp.code==="ok"){
+						toast("修改成功");
+						setTimeout(function(){
+							location.href="my-account.html";
+							//修改父窗口
+							window.top.paintAvatar();
+						},1000)
+					}else{
+						toast(resp.message);
+					}
+	            }
+	        })
+
+			return false;
+		})
+	</script>
+</body>
+
+</html>
